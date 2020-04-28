@@ -3,18 +3,18 @@ testbed:
   name: Underwater_Corporation_Testbed
 
 devices:
-  sbx-nxos-mgmt:
+  mgmt-sw05:
       type: 'router'
-      os: 'nxos'
-      alias: 'uut'
+      os: 'ios'
+      alias: 'Rack Management Switch'
       credentials:
         default:
-          username: admin
-          password: Admin_1234!
+          username: cisco
+          password: cisco
         enable:
-          password: Admin_1234!
+          password: cisco
       connections:
           cli:
-              protocol: ssh
-              ip: "sbx-nxos-mgmt.cisco.com"
-              port: 8181
+              protocol: telnet
+              ip: 10.1.10.102
+

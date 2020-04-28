@@ -1,6 +1,6 @@
 ---
 testbed:
-  name: DevNet Always On Sandbox Devices
+  name: DevNet_Always_On_Sandbox_Devices
 
 
 devices:

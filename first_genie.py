@@ -12,52 +12,50 @@ __date__ = "4/25/20"
 __copyright__ = "Copyright (c) 2018 Claudia"
 __license__ = "Python"
 
-import argparse
 from genie.testbed import load
 import json
 
 
-def device_info(dev, testbed_obj, showcmd='show version'):
+def main():
+    """
+    This first pyATS Genie script instantiates the devnet_sbx_testbed.yml Testbed file which has two DevNet Always On
+    Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").
+    All of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics
+    without alot of "extras" or flexibility.
+    :return:
     """
 
-    :param dev: the testbed device to query
-    :param testbed_obj:  the testbed object
-    :param showcmd: what show command to execute
-    :return: Return the device object and the show command response
-    """
+    # Instantiate the Testbed
+    testbed = load('devnet_sbx_testbed.yml')
+    print(f"\n======= TESTBED INFO =======\n")
+    print(f"\tTestbed Value (object): {testbed}")
+    # print(dir(testbed))
+    print(f"\tTestbed Name: \n\t\t{testbed.name}")
+    print(f"\tTestbed Devices: \n\t\t{testbed.devices}")
+    print(f"\tTestbed Links: \n\t\t{testbed.links}")
+    print(f"\n======= END TESTBED INFO =======\n")
 
-    device = testbed_obj.devices[dev]
+
+    # Sandbox NXOS Device
+    device = testbed.devices['sbx-n9kv-ao']
     device.connect()
-    response = device.parse(showcmd)
-    print(f"Response from {dev} is of type {type(response)} and length {len(response)}")
+    response = device.parse('show version')
+    print(f"Response from sbx-n9kv-ao is of type {type(response)} and length {len(response)}")
     print(response)
     print()
     print(json.dumps(response, indent=4))
     print(response.keys())
 
-    return device, response
-
-
-def main():
-
-    # Instantiate the Testbed
-    testbed = load('devnet_sbx_testbed.yml')
-    print(testbed)
-
-    # Sandbox NXOS Device
-    nx_dev, nx_resp = device_info('sbx-n9kv-ao', testbed, 'show version')
-
     # csr1000v-1
-    csr_dev, csr_resp = device_info('csr1000v-1', testbed, 'show ip interface brief')
-
+    device = testbed.devices['csr1000v-1']
+    device.connect()
+    response = device.parse('show version')
+    print(f"Response from csr1000v-1 is of type {type(response)} and length {len(response)}")
+    print(response)
+    print()
+    print(json.dumps(response, indent=4))
+    print(response.keys())
 
 # Standard call to the main() function.
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Script Description",
-                                     epilog="Usage: ' python first_genie' ")
-
-    #parser.add_argument('all', help='Execute all exercises in week 4 assignment')
-    # parser.add_argument('-a', '--all', help='Execute all exercises in week 4 assignment', action='store_true',
-    #                     default=False)
-    arguments = parser.parse_args()
     main()
