@@ -33,7 +33,12 @@ def main():
 
 
     # Sandbox NXOS Device
+    # CLI: genie parse "show version" --testbed-file "devnet_sbx_testbed.yml" --devices "sbx-n9kv-ao"
+    # This CLI command outputs the results into a directory called "out1" which does not have to exist
+    # CLI & SAVE: genie parse "show version" --testbed-file "devnet_sbx_testbed.yml" --devices "sbx-n9kv-ao" --output out1
+    # DIFF CLI:  genie diff out1 out2
     device = testbed.devices['sbx-n9kv-ao']
+    # print(dir(device))
     device.connect()
     response = device.parse('show version')
     print(f"Response from sbx-n9kv-ao is of type {type(response)} and length {len(response)}")
@@ -43,6 +48,7 @@ def main():
     print(response.keys())
 
     # csr1000v-1
+    # CLI: genie parse "show version" --testbed-file "devnet_sbx_testbed.yml" --devices "csr1000v-1"
     device = testbed.devices['csr1000v-1']
     device.connect()
     response = device.parse('show version')

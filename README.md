@@ -1,5 +1,77 @@
 
-# Getting Started with PyATS (including Genie)
+# Getting Started with pyATS (including Genie)
+
+### What is Python Automated Test System (pyATS)?
+
+None of the answers I found to this question really made much sense to me initially.
+
+A Python3 based **Test Automation and Validation Framework** developed by Cisco (but open and extensible to any vendor) is probably the best short answer but still too vague to be of much use.
+
+For a while I dismissed it because I though it was a python testing framework like PyTest or Unittest and didn't have time to delve any further but common sense told me there had to be more to it than that.
+
+When I had time to look deeper it was clear that this was a **python framework to help you test your network**!  Like, really test! 
+
+- Are all my routes there after my change?
+- What changed from yesterday?
+- Log my changes for my Change Request ticket in three commands!
+
+I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm trying to get away from the CLI and I don't want structured data output the the screen. I want to process that structured data.
+
+Now that I've had some time to spend working with it, its clear this is something worth investing some (alot) of time to learn because it is incredibly powerful and can be run from the CLI or as part of your python script.
+
+I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with Python and scripts then there is alot of content out there for you to look at.  In my opinion this just delays the inevitable but some of the scripts will have their CLI equivalents if you just can't help yourself.
+
+For those of you already comfortable with basic Python scripts, then you are my target audience!
+
+In addition, if you spend alot of time parsing Cisco output then **you need to take a look at this module**!
+
+For those of you that know a bit about Ansible or Nornir, then think of pyATS as something comparable (it is a framework) but just for network devices and which returns structured data (*note that Ansible and Nornir can also return structured data*).
+
+| Function                                     | pyATS                                                 | Comparable Technology Equivalent                             |
+| -------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------ |
+| List of devices and how to access            | Testbed file                                          | Ansible Host file<br />Nornir Hosts file<br />Netmiko connection object |
+| Topology                                     | Part of the Testbed file                              | None                                                         |
+| Establish a connection to a device           | Object connect method<br />device.connect()           | Ansible Playbook and Network Modules<br />Nornir instance <br />Netmiko instance |
+| Execute show commands                        | Object parse method<br />device.parse('show version') | Ansible Playbook and Network Modules<br />Nornir instance run method<br />Netmiko connect method |
+| "Parse" show commands to get structured data | Object parse method<br />device.parse('show version') | TextFSM, Netmiko with TextFSM option<br />Napalm, like Genie will return structure data |
+| Diff two different outputs                   | genie diff                                            | Python code                                                  |
+
+Official Documentation:
+
+- [pyATS Documentation](https://pubhub.devnetcloud.com/media/pyats/docs/index.html)
+- [pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
+
+
+
+### Why do I care?
+
+I can't answer this question for you but I can tell you why its of interest to me. 
+
+When dealing with network devices, particularly legacy network devices without APIs, I generally have a few basic workflows in my Python scripts:
+
+- Connect to devices to get show commands and process (parse) and/or save output to a file
+- Process (parse) text files of show commands to get structured data and then apply some logic depending on what I'm trying to do.
+- Compare output
+  - Compare the PRE Mac address table to the POST Mac address table
+  - Compare the PRE routing table to the POST routing table
+  - Compare PRE/POST interface configuration
+  - Compare current configuration with standard
+
+Accomplishing these workflows generally takes a number of modules and Python logic.
+
+For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko and then parse with TextFMS.
+
+With PyATS, I can do that in one step!   In fact, I can do all three of those activities in a single command!!
+
+So thats efficient but I've already done all the heavy lifting to do those workflows.  
+
+Why is this still interesting?  Well, we've just scratched the surface of pyATS.    We have the structured data part down but the real goal is to use that structured data as part of our day to day processes and to test our network.
+
+PyATS is very good at parsing because it **needs structured data to automate the testing of your network**.
+
+So this is taking our automation to the next level.  We've been so hung up on logging to the legacy device, running commands, getting output, parsing that output that sometimes the effort to get that point is such that we see that as the final accomplishment.  While it is an accomplishment, its only the beginning!
+
+
 
 ### Creating Your Environment
 
@@ -29,8 +101,6 @@ robotframework               3.1.2
 setproctitle                 1.1.10
 ```
 
-
-
 *Note:  On my Mac running Catalina with Zsh I had to quote the install string:*
 
 ```
@@ -39,7 +109,7 @@ pip install "pyats[full]"
 
 
 
-As an alternative, there is a [pyATS Docker image](https://developer.cisco.com/codeexchange/github/repo/CiscoTestAutomation/pyats-docker).
+As an alternative, there is a [pyATS Docker image](https://developer.cisco.com/codeexchange/github/repo/CiscoTestAutomation/pyats-docker).  The command below will instantiate the container (download the image if you don't have it) and give you an interactive shell.
 
 ```bash
 $ docker run -it ciscotestautomation/pyats:latest /bin/bash
@@ -49,17 +119,21 @@ $ docker run -it ciscotestautomation/pyats:latest /bin/bash
 
 ### Creating Your Testbed File
 
-For those who are somewhat familiar with Ansible, you can think of this as your inventory or hosts file.  The testbed file actually has some additional capabilities that allow you to define your topology for to get started we just want to define our devices and how to contact them.
+For those who are somewhat familiar with Ansible, you can think of this as your inventory or hosts file.  The testbed file actually has some additional capabilities that allow you to define your topology (this is new!!) but to get started we just want to define our devices and how to contact them.
 
-The genie CLI has a handy interactive script that will walk you through creating your first testbed file without having to dig into the syntax of the file.
+The genie CLI has a handy interactive script that will walk you through creating your first testbed file without having to dig into the syntax of the file. (Note: You will need to pip install some Python Excel modules to run this but luckily it will tell you what you need if you don't already have them installed).
+
+The **genie create testbed** command will walk you through some questions and then generate a properly formatted testbed file.  The command below will generate that file as *my_testbed.yml* in the local directory. You can provide a different path or subdirectory if you want to.  In production, I generally put testbed files in a subdirectory.
 
 ```
-genie create testbed --output yaml/my_testbed.yaml
+genie create testbed --output my_testbed.yml
 ```
 
-You can run it with the *--encode-password* option to encode your passwords but there are better ways to do that one you move into production.
+You can run it with the *--encode-password* option to encode your passwords but there are better ways to do that once you move into production.
 
-I found the [Testbed Topology Schema](https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html) very helpful:
+Tip: make sure your <name> matches your device hostname exactly!
+
+I found the [Testbed Topology Schema](https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html) very helpful when trying to generate testbed files.
 
 Every section is broken down with explanatory comments, for example here is a section of the devices section:
 
@@ -149,7 +223,7 @@ The devenet_sbx_testbed.yml Testbed file contains two example devices from the D
 
 The *first\_genie.py* pyATS Genie script instantiates the *devnet_sbx_testbed.yml* testbed file which has two DevNet Always On Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").  In this script, all of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics without alot of "extras" or flexibility.
 
-
+This script also includes the Genie CLI equivalent so you can compare.
 
 #### Second Script
 
@@ -243,6 +317,8 @@ Tip:
 
 [List of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers)
 
+[pyATS Release history from Libraries.io](https://libraries.io/pypi/pyats)
+
 
 
 ### GitHub Repositories from Cisco and other Network Engineers
@@ -252,4 +328,12 @@ https://github.com/CiscoTestAutomation/examples
 https://github.com/kecorbin/pyats-network-checks/blob/master/devnet_sandbox.yaml
 
 https://github.com/vsantiago113/pyATS-Boilerplate
+
+
+
+### Tutorials
+
+[pyATS on YouTube](https://www.youtube.com/results?search_query=pyats)
+
+[pyATS | Genie - Getting Started! - Data Knox YouTube](https://www.youtube.com/watch?v=GhkkOxLheRY&t=327s)
 
