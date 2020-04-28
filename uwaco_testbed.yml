@@ -1,0 +1,20 @@
+---
+testbed:
+  name: Underwater_Corporation_Testbed
+
+devices:
+  sbx-nxos-mgmt:
+      type: 'router'
+      os: 'nxos'
+      alias: 'uut'
+      credentials:
+        default:
+          username: admin
+          password: Admin_1234!
+        enable:
+          password: Admin_1234!
+      connections:
+          cli:
+              protocol: ssh
+              ip: "sbx-nxos-mgmt.cisco.com"
+              port: 8181

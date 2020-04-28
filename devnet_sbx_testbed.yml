@@ -1,0 +1,34 @@
+---
+testbed:
+  name: DevNet Alwasy On Sandbox Devices
+
+
+devices:
+  sbx-n9kv-ao:
+    connections:
+      cli:
+        ip: sbx-nxos-mgmt.cisco.com
+        protocol: ssh
+        port: 8181
+    credentials:
+      default:
+        password: Admin_1234!
+        username: admin
+      enable:
+        password: Admin_1234!
+    os: nxos
+    type: Nexus9000v
+  csr1000v-1:
+    connections:
+      cli:
+        ip: ios-xe-mgmt-latest.cisco.com
+        protocol: ssh
+        port: 8181
+    credentials:
+      default:
+        username: developer
+        password: C1sco12345
+      enable:
+        password: C1sco12345
+    os: iosxe
+    type: CSR1000v
