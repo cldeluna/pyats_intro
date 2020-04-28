@@ -14,10 +14,11 @@ When I had time to look deeper it was clear that this was a **python framework t
 - Are all my routes there after my change?
 - What changed from yesterday?
 - Log my changes for my Change Request ticket in three commands!
+- Do I have these bgp neighbors after my change?
 
-I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm trying to get away from the CLI and I don't want structured data output the the screen. I want to process that structured data.
+I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output the the screen. I want to process that structured data.
 
-Now that I've had some time to spend working with it, its clear this is something worth investing some (alot) of time to learn because it is incredibly powerful and can be run from the CLI or as part of your python script.
+Now that I've had some time to spend working with it, it is clear this is something worth investing some time to learn because it is incredibly powerful and can be run from the CLI or as part of your python script and there are good use cases for both.
 
 I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with Python and scripts then there is alot of content out there for you to look at.  In my opinion this just delays the inevitable but some of the scripts will have their CLI equivalents if you just can't help yourself.
 
@@ -34,36 +35,46 @@ For those of you that know a bit about Ansible or Nornir, then think of pyATS as
 | Establish a connection to a device           | Object connect method<br />device.connect()           | Ansible Playbook and Network Modules<br />Nornir instance <br />Netmiko instance |
 | Execute show commands                        | Object parse method<br />device.parse('show version') | Ansible Playbook and Network Modules<br />Nornir instance run method<br />Netmiko connect method |
 | "Parse" show commands to get structured data | Object parse method<br />device.parse('show version') | TextFSM, Netmiko with TextFSM option<br />Napalm, like Genie will return structure data |
-| Diff two different outputs                   | genie diff                                            | Python code                                                  |
+| Diff two different outputs                   | genie diff                                            | Python code <br />Ansible Playbook                           |
+|                                              |                                                       |                                                              |
+|                                              |                                                       |                                                              |
 
 Official Documentation:
 
 - [pyATS Documentation](https://pubhub.devnetcloud.com/media/pyats/docs/index.html)
 - [pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
 
-
-
 ### Why do I care?
 
 I can't answer this question for you but I can tell you why its of interest to me. 
+
+- Arguably an easier way to parse data from legacy network devices
+- Easy way to compare "state" and configurations
+- A testing framework that you can use to validate your network
+
+#### Parsing
 
 When dealing with network devices, particularly legacy network devices without APIs, I generally have a few basic workflows in my Python scripts:
 
 - Connect to devices to get show commands and process (parse) and/or save output to a file
 - Process (parse) text files of show commands to get structured data and then apply some logic depending on what I'm trying to do.
-- Compare output
+- Parse and Compare output
   - Compare the PRE Mac address table to the POST Mac address table
   - Compare the PRE routing table to the POST routing table
   - Compare PRE/POST interface configuration
   - Compare current configuration with standard
 
-Accomplishing these workflows generally takes a number of modules and Python logic.
+Accomplishing these workflows generally takes a number of modules and Python logic and they all have one thing in common. 
+
+Parsing Text to get structured data
 
 For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko and then parse with TextFMS.
 
 With PyATS, I can do that in one step!   In fact, I can do all three of those activities in a single command!!
 
 So thats efficient but I've already done all the heavy lifting to do those workflows.  
+
+#### Testing
 
 Why is this still interesting?  Well, we've just scratched the surface of pyATS.    We have the structured data part down but the real goal is to use that structured data as part of our day to day processes and to test our network.
 
@@ -315,6 +326,8 @@ Tip:
 
 [pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
 
+[Genie Feature Browser](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/)
+
 [List of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers)
 
 [pyATS Release history from Libraries.io](https://libraries.io/pypi/pyats)
@@ -337,3 +350,12 @@ https://github.com/vsantiago113/pyATS-Boilerplate
 
 [pyATS | Genie - Getting Started! - Data Knox YouTube](https://www.youtube.com/watch?v=GhkkOxLheRY&t=327s)
 
+
+
+What the heck does uut stand for (found in lots of the pyATS documentation)?
+
+UUT = Unit Under Test
+
+DUT = Device Under Test
+
+EUT = Equipment Under Test

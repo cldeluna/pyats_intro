@@ -2,3 +2,7 @@ examples
 .idea
 *.json
 out*
+pre*
+post*
+PRE*
+POST*
