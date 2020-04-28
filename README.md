@@ -145,9 +145,95 @@ devices:
 
 The devenet_sbx_testbed.yml Testbed file contains two example devices from the DevNet Always On Sandbox devices.
 
+#### First Script
+
+The *first\_genie.py* pyATS Genie script instantiates the *devnet_sbx_testbed.yml* testbed file which has two DevNet Always On Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").  In this script, all of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics without alot of "extras" or flexibility.
 
 
 
+#### Second Script
+
+The *second\_genie.py* pyATS Genie script has more features.
+
+- It removes the code repetition and moves the repetitive code into a function.
+- The script takes arguments but uses the default  *devnet_sbx_testbed.yml* testbed file if not options are provided.
+  1. **-t** option to use a non default testbed file. 
+     Default Testbed file:  *devnet_sbx_testbed.yml*
+  2. **-s** option to save the structured data response to a JSON file 
+     Default: False (don't save)
+  3. **-c** option to run a non default command 
+     Default: "show version"
+- Example showing how to iterate over all of the devices in the testbed file
+
+Executed like below without any arguments, this script does what the *first_genie.py* script does. 
+
+```
+(pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py
+```
+
+This second script is "better" code and provides the flexibility to run different commands on the same or different testbed topology and save the output.
+
+Now, with this second script I can execute pyATS on my local lab topology:
+
+```bash
+(pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml
+```
+
+
+
+Sample output:
+
+```
+
+======= TESTBED INFO =======
+
+        Testbed Value (object): <Testbed object 'Underwater_Corporation_Testbed' at 0x7fb0f8938710>
+        Testbed Name: 
+                Underwater_Corporation_Testbed
+        Testbed Devices: 
+                TopologyDict({'mgmt-sw05': <Device mgmt-sw05 at 0x7fb0b866dc50>})
+        Number of Testbed Links: 
+                set()
+        Number of Testbed Devices: 
+                1
+
+======= END TESTBED INFO =======
+
+
+>>>>>>> DEVICE mgmt-sw05
+
+[2020-04-28 11:08:22,730] +++ mgmt-sw05 logfile /tmp/mgmt-sw05-cli-20200428T110822729.log +++
+[2020-04-28 11:08:22,730] +++ Unicon plugin ios +++
+Trying 10.1.10.102...
+
+```
+
+
+
+I can also run a different command and save the output to a JSON file for processing later.
+
+```
+(pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml -c "show interfaces description" -s 
+
+```
+
+Tip: 
+
+- Make sure that the command you are providing with the -c option is a valid genie command. Check the [list of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers).  
+
+  - If you see an error like this make sure you are using a valid parser and that you are not using shorthand
+
+  ```
+  Exception: Could not find parser for 'show interface status'
+  ```
+
+- Do not use command shorthand line "sh int status"
+
+  ```
+  Exception: Could not find parser for 'sh int status'
+  ```
+
+  
 
 ### Handy Links
 

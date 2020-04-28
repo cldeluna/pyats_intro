@@ -29,10 +29,6 @@ def main():
     testbed = load('devnet_sbx_testbed.yml')
     print(f"\n======= TESTBED INFO =======\n")
     print(f"\tTestbed Value (object): {testbed}")
-    # print(dir(testbed))
-    print(f"\tTestbed Name: \n\t\t{testbed.name}")
-    print(f"\tTestbed Devices: \n\t\t{testbed.devices}")
-    print(f"\tTestbed Links: \n\t\t{testbed.links}")
     print(f"\n======= END TESTBED INFO =======\n")
 
 

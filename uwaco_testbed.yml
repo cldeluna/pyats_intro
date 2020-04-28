@@ -4,8 +4,8 @@ testbed:
 
 devices:
   mgmt-sw05:
-      type: 'router'
-      os: 'ios'
+      type: 'switch'
+      os: 'iosxe'
       alias: 'Rack Management Switch'
       credentials:
         default:
