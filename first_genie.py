@@ -17,8 +17,14 @@ from genie.testbed import load
 import json
 
 
-
 def device_info(dev, testbed_obj, showcmd='show version'):
+    """
+
+    :param dev: the testbed device to query
+    :param testbed_obj:  the testbed object
+    :param showcmd: what show command to execute
+    :return: Return the device object and the show command response
+    """
 
     device = testbed_obj.devices[dev]
     device.connect()
@@ -31,6 +37,7 @@ def device_info(dev, testbed_obj, showcmd='show version'):
 
     return device, response
 
+
 def main():
 
     # Instantiate the Testbed
@@ -40,11 +47,8 @@ def main():
     # Sandbox NXOS Device
     nx_dev, nx_resp = device_info('sbx-n9kv-ao', testbed, 'show version')
 
-
-
     # csr1000v-1
     csr_dev, csr_resp = device_info('csr1000v-1', testbed, 'show ip interface brief')
-
 
 
 # Standard call to the main() function.
