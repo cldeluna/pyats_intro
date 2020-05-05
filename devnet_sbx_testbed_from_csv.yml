@@ -1,0 +1,29 @@
+devices:
+  csr1000v-1:
+    connections:
+      cli:
+        ip: ios-xe-mgmt-latest.cisco.com
+        port: 8181
+        protocol: ssh
+    credentials:
+      default:
+        password: C1sco12345
+        username: root
+      enable:
+        password: C1sco12345
+    os: iosze
+    type: iosze
+  sbx-n9kv-ao:
+    connections:
+      cli:
+        ip: sbx-nxos-mgmt.cisco.com
+        port: 8181
+        protocol: ssh
+    credentials:
+      default:
+        password: Admin_1234!
+        username: admin
+      enable:
+        password: Admin_1234!
+    os: nxos
+    type: nxos

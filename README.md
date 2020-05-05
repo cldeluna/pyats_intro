@@ -9,18 +9,20 @@ A Python3 based **Test Automation and Validation Framework** developed by Cisco 
 
 For a while I dismissed it because I though it was a python testing framework like PyTest or Unittest and didn't have time to delve any further but common sense told me there had to be more to it than that.
 
-When I had time to look deeper it was clear that this was a **python framework to help you test your network**!  Like, really test! 
+When I had time to look deeper it was clear that this was a **python framework to help you test your network**!  Like, really test!
 
 - Are all my routes there after my change?
 - What changed from yesterday?
 - Log my changes for my Change Request ticket in three commands!
 - Do I have these bgp neighbors after my change?
 
-I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output the the screen. I want to process that structured data.
+Wow!
 
-Now that I've had some time to spend working with it, it is clear this is something worth investing some time to learn because it is incredibly powerful and can be run from the CLI or as part of your python script and there are good use cases for both.
+But still, I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output the the screen. I want to process that structured data.
 
-I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with Python and scripts then there is alot of content out there for you to look at.  In my opinion this just delays the inevitable but some of the scripts will have their CLI equivalents if you just can't help yourself.
+Now that I've had some time to spend working with it, it is clear this is something worth investing some time to learn because it is incredibly powerful and can be run from the CLI **or** as part of your python script and there are good use cases for both.
+
+I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with Python and scripts then there is alot of content out there for you to look at.  In my opinion this just delays the inevitable but some of the scripts will note their CLI equivalents if you just can't help yourself.
 
 For those of you already comfortable with basic Python scripts, then you are my target audience!
 
@@ -36,8 +38,8 @@ For those of you that know a bit about Ansible or Nornir, then think of pyATS as
 | Execute show commands                        | Object parse method<br />device.parse('show version') | Ansible Playbook and Network Modules<br />Nornir instance run method<br />Netmiko connect method |
 | "Parse" show commands to get structured data | Object parse method<br />device.parse('show version') | TextFSM, Netmiko with TextFSM option<br />Napalm, like Genie will return structure data |
 | Diff two different outputs                   | genie diff                                            | Python code <br />Ansible Playbook                           |
-|                                              |                                                       |                                                              |
-|                                              |                                                       |                                                              |
+| Config and Unconfig                          | Stay Tuned                                            |                                                              |
+| Testing                                      | Stay Tuned                                            | Manual                                                       |
 
 Official Documentation:
 
@@ -51,6 +53,8 @@ I can't answer this question for you but I can tell you why its of interest to m
 - Arguably an easier way to parse data from legacy network devices
 - Easy way to compare "state" and configurations
 - A testing framework that you can use to validate your network
+
+This repository will focus on the parsing aspect.
 
 #### Parsing
 
@@ -76,7 +80,7 @@ So thats efficient but I've already done all the heavy lifting to do those workf
 
 #### Testing
 
-Why is this still interesting?  Well, we've just scratched the surface of pyATS.    We have the structured data part down but the real goal is to use that structured data as part of our day to day processes and to test our network.
+Why is this still interesting?  Well, we've just scratched the surface of pyATS.    We have the structured data part down but the real goal is to use that structured data as part of our day to day processes and to test and verify our network.
 
 PyATS is very good at parsing because it **needs structured data to automate the testing of your network**.
 
@@ -96,6 +100,12 @@ Most will tell you to install pyATS with the Genie library and that is a good mi
 
 ```bash
 pip install pyats[library]
+```
+
+If you want to use the interactive testbed command to create your testbed environment and you are running pyATS 20.2.1 or later you will also need:
+
+```
+pip install pyats.contrib
 ```
 
 Since I want to use some of the additional pyATS capabilities (like robot) I installed the full package.
@@ -137,7 +147,11 @@ The genie CLI has a handy interactive script that will walk you through creating
 The **genie create testbed** command will walk you through some questions and then generate a properly formatted testbed file.  The command below will generate that file as *my_testbed.yml* in the local directory. You can provide a different path or subdirectory if you want to.  In production, I generally put testbed files in a subdirectory.
 
 ```
+# Prior to pyATS version 20.2.1
 genie create testbed --output my_testbed.yml
+
+# pyATS version 20.2.1 or later to create a testbed file interactively
+genie create testbed interactive --output my_testbed.yml
 ```
 
 You can run it with the *--encode-password* option to encode your passwords but there are better ways to do that once you move into production.
@@ -352,7 +366,7 @@ https://github.com/vsantiago113/pyATS-Boilerplate
 
 
 
-What the heck does uut stand for (found in lots of the pyATS documentation)?
+###  Glossary
 
 UUT = Unit Under Test
 

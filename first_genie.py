@@ -41,7 +41,7 @@ def main():
     # print(dir(device))
     device.connect()
     response = device.parse('show version')
-    print(f"Response from sbx-n9kv-ao is of type {type(response)} and length {len(response)}")
+    print(f"\nResponse from sbx-n9kv-ao is of type {type(response)} and length {len(response)}")
     print(response)
     print()
     print(json.dumps(response, indent=4))
@@ -52,7 +52,7 @@ def main():
     device = testbed.devices['csr1000v-1']
     device.connect()
     response = device.parse('show version')
-    print(f"Response from csr1000v-1 is of type {type(response)} and length {len(response)}")
+    print(f"\nResponse from csr1000v-1 is of type {type(response)} and length {len(response)}")
     print(response)
     print()
     print(json.dumps(response, indent=4))
