@@ -38,8 +38,7 @@ For those of you that know a bit about Ansible or Nornir, then think of pyATS as
 | Execute show commands                        | Object parse method<br />device.parse('show version') | Ansible Playbook and Network Modules<br />Nornir instance run method<br />Netmiko connect method |
 | "Parse" show commands to get structured data | Object parse method<br />device.parse('show version') | TextFSM, Netmiko with TextFSM option<br />Napalm, like Genie will return structure data |
 | Diff two different outputs                   | genie diff                                            | Python code <br />Ansible Playbook                           |
-| Config and Unconfig                          | Stay Tuned                                            |                                                              |
-| Testing                                      | Stay Tuned                                            | Manual                                                       |
+| Testing                                      | Stay Tuned!!!                                         | Manual                                                       |
 
 Official Documentation:
 
@@ -144,19 +143,21 @@ For those who are somewhat familiar with Ansible, you can think of this as your 
 
 The genie CLI has a handy interactive script that will walk you through creating your first testbed file without having to dig into the syntax of the file. (Note: You will need to pip install some Python Excel modules to run this but luckily it will tell you what you need if you don't already have them installed).
 
-The **genie create testbed** command will walk you through some questions and then generate a properly formatted testbed file.  The command below will generate that file as *my_testbed.yml* in the local directory. You can provide a different path or subdirectory if you want to.  In production, I generally put testbed files in a subdirectory.
+The **genie create testbed interactive**  command will walk you through some questions and then generate a properly formatted testbed file.  The command below will generate that file as *my_testbed.yml* in the local directory. You can provide a different path or subdirectory if you want to.  In production, I generally put testbed files in a subdirectory.
 
 ```
-# Prior to pyATS version 20.2.1
+# Prior to pyATS version 20.4.1
 genie create testbed --output my_testbed.yml
 
-# pyATS version 20.2.1 or later to create a testbed file interactively
+# pyATS version 20.4.1 or later to create a testbed file interactively
 genie create testbed interactive --output my_testbed.yml
 ```
 
 You can run it with the *--encode-password* option to encode your passwords but there are better ways to do that once you move into production.
 
 Tip: make sure your <name> matches your device hostname exactly!
+
+As of pyATS version 20.4.1, you can also generate testbed files from a file, an ansible hosts file, or netbox!
 
 I found the [Testbed Topology Schema](https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html) very helpful when trying to generate testbed files.
 
@@ -242,7 +243,7 @@ devices:
 
 ### Executing PyATS
 
-The devenet_sbx_testbed.yml Testbed file contains two example devices from the DevNet Always On Sandbox devices.
+The *devenet_sbx_testbed.yml* Testbed file contains two example devices from the DevNet Always On Sandbox devices.
 
 #### First Script
 

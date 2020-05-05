@@ -11,8 +11,8 @@ devices:
         username: root
       enable:
         password: C1sco12345
-    os: iosze
-    type: iosze
+    os: iosxe
+    type: iosxe
   sbx-n9kv-ao:
     connections:
       cli:
