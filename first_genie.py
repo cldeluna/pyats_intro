@@ -26,7 +26,7 @@ def main():
     """
 
     # Instantiate the Testbed
-    testbed = load('devnet_sbx_testbed_from_csv.yml')
+    testbed = load('devnet_sbx_testbed.yml')
     print(f"\n======= TESTBED INFO =======\n")
     print(f"\tTestbed Value (object): {testbed}")
     print(f"\n======= END TESTBED INFO =======\n")

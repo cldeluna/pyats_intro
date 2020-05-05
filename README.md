@@ -5,9 +5,9 @@
 
 None of the answers I found to this question really made much sense to me initially.
 
-A Python3 based **Test Automation and Validation Framework** developed by Cisco (but open and extensible to any vendor) is probably the best short answer but still too vague to be of much use.
+A Python3 based **Test Automation and Validation Framework** developed by Cisco (but open and extensible to any vendor) is probably the best short answer but still too vague to be of much use.  
 
-For a while I dismissed it because I though it was a python testing framework like PyTest or Unittest and didn't have time to delve any further but common sense told me there had to be more to it than that.
+For a while I dismissed it because I though it was a python testing framework like PyTest or Unittest but common sense told me there had to be more to it than that.
 
 When I had time to look deeper it was clear that this was a **python framework to help you test your network**!  Like, really test!
 
@@ -18,7 +18,7 @@ When I had time to look deeper it was clear that this was a **python framework t
 
 Wow!
 
-But still, I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output the the screen. I want to process that structured data.
+But still, I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output to the screen. I want to process that structured data!
 
 Now that I've had some time to spend working with it, it is clear this is something worth investing some time to learn because it is incredibly powerful and can be run from the CLI **or** as part of your python script and there are good use cases for both.
 
@@ -76,6 +76,8 @@ For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko a
 With PyATS, I can do that in one step!   In fact, I can do all three of those activities in a single command!!
 
 So thats efficient but I've already done all the heavy lifting to do those workflows.  
+
+
 
 #### Testing
 
@@ -157,7 +159,7 @@ You can run it with the *--encode-password* option to encode your passwords but 
 
 Tip: make sure your <name> matches your device hostname exactly!
 
-As of pyATS version 20.4.1, you can also generate testbed files from a file, an ansible hosts file, or netbox!
+As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or netbox!
 
 I found the [Testbed Topology Schema](https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html) very helpful when trying to generate testbed files.
 
