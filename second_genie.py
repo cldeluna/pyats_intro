@@ -19,6 +19,11 @@ import json
 
 def device_info(dev, testbed_obj, showcmd='show version', save_to_json=False):
     """
+    This function connects to the device provided when called (dev) in the instantiated testbed (testbed_obj)
+    and executes the provided show command (if none was provided, 'show version' is executed by defulat.
+
+    If the Save option = True (-s in the command line) was provided then the output will be saved to a JSON file in
+    the current working directory with the name <device name>.json.  The default behavior is NOT to save the output.
 
     :param dev: the testbed device to query
     :param testbed_obj:  the testbed object
@@ -59,7 +64,7 @@ def main():
     print(f"\tNumber of Testbed Devices: \n\t\t{len(testbed.devices)}")
     print(f"\n======= END TESTBED INFO =======\n")
 
-    # Using the default parameters
+    # Using the default parameters and therefore the default Testbed
     if testbed.name == 'DevNet_Always_On_Sandbox_Devices':
         # Sandbox NXOS Device
         nx_dev, nx_resp = device_info('sbx-n9kv-ao', testbed, arguments.command, arguments.save)
