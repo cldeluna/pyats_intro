@@ -1,5 +1,5 @@
 
-# Getting Started with pyATS (including Genie)
+# Getting Started with pyATS (and Genie)
 
 ### What is Python Automated Test System (pyATS)?
 
@@ -9,7 +9,7 @@ A Python3 based **Test Automation and Validation Framework** developed by Cisco 
 
 Add in Genie because at least originally you always heard bout Genie and pyATS together but it was never clear why.  Today Cisco is working hard to streamline this so that Genie (I like to think of it as the parsing and testing library) and pyATS (the overarching testing support framework) are bundled together. 
 
-For a while I dismissed it because I though it was a Python testing framework like PyTest or Unittest but common sense told me there had to be more to it than that.  It **is** much more than that.  Think of it as PyTest but for your network rather than for your code!
+For a while I dismissed it because I thought it was a Python testing framework like PyTest or Unittest but common sense told me there had to be more to it than that. After all, why would Cisco develop a Python testing framework?   Well, because it **IS** a testing framework but for your network rather than for your code!
 
 PyATS is a **python framework to help you test your network**!  Like, actual functional testing!!
 
@@ -20,7 +20,7 @@ PyATS is a **python framework to help you test your network**!  Like, actual fun
 
 Wow!
 
-But still, I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output to the screen. I want to work with that structured data and apply logic!   Luckily, the CLI is just one way to use this powerful module!  It can be run from the CLI **or** as part of your Python script and there are good use cases for both.
+But still, I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output to the screen. I want to work with that structured data and apply logic!   Luckily, the CLI is just one way to use this powerful framework!  It can be run from the CLI **or** as part of your Python script and there are good use cases for both.
 
 I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with scripts then there is alot of content out there for you to look at showing the CLI.  In my opinion, this just delays the inevitable but some of the scripts will note their CLI equivalents if you just can't help yourself.
 
@@ -51,10 +51,10 @@ I can't answer this question for you but I can tell you why its of interest to m
 
 - Arguably an easier way to parse data from legacy network devices particularly if you are just starting out
 - Easy way to compare "state" and configurations
-- A testing framework that you can use to validate your network
+- A testing framework that you can use to validate your network devices and topology
   - Envision a workflow using Nornir to deploy configurations to your devices and pyATS to ensure that your network is in an operational state!
 
-This repository will focus on the parsing aspect.
+This repository will focus on the parsing aspect and hopefully get you interested enough to look beyond the parsing.
 
 #### Parsing
 
@@ -97,7 +97,7 @@ So this is taking our automation to the next level.  We've been so hung up on lo
 
 ### Creating Your Environment
 
-PyATS is supported on Linux with Python 3.4 or greater (but 3.5 or treated is recommended) . There is no Windows support at the time of writing (2020-04) but Mac OS X is supported.  For those of you on Windows, fear not, as you can always spin up a Virtual Machine or a Docker image.  Keep reading to learn more about your Docker image options.    
+PyATS is supported on Linux with Python 3.4 or greater (but 3.5 or later is recommended) . There is no Windows support at the time of writing (2020-04) but Mac OS X is supported.  For those of you on Windows, fear not, as you can always spin up a Virtual Machine or a Docker image.  Keep reading to learn more about your Docker image options.    
 
 Always start with a virtual environment.  See the [Real Python vENV primer](https://realpython.com/python-virtual-environments-a-primer/) for more details on that.
 
@@ -139,6 +139,8 @@ pip install "pyats[full]"
 
 ```
 pip install pyats[full] --upgrade
+or
+pip install pyats[library] --upgrade
 pip install pyats.contrib --upgrade
 ```
 
@@ -146,7 +148,7 @@ pip install pyats.contrib --upgrade
 
 #### Docker Image
 
-As an alternative, there is a [pyATS Docker image](https://developer.cisco.com/codeexchange/github/repo/CiscoTestAutomation/pyats-docker).  The command below will download the image if you don't have it, instantiate the container, and give you an interactive shell.
+As an alternative, there is a [pyATS Docker image](https://developer.cisco.com/codeexchange/github/repo/CiscoTestAutomation/pyats-docker). The command below will download the image if you don't have it, instantiate the container, and give you an interactive shell into the container that now has your environment.
 
 ```bash
 $ docker run -it ciscotestautomation/pyats:latest /bin/bash
@@ -173,6 +175,39 @@ SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
 root@441cbac66b2e:/pyats# python --version
 Python 3.6.10
+
+## Check the version
+root@d4c00fd6662c:/pyats# pyats version check
+You are currently running pyATS version: 20.2
+Python: 3.6.10 [64bit]
+
+  Package                      Version
+  ---------------------------- -------
+  genie                        20.2
+  genie.libs.conf              20.2
+  genie.libs.filetransferutils 20.2
+  genie.libs.ops               20.2
+  genie.libs.parser            20.2
+  genie.libs.sdk               20.2
+  pyats                        20.2
+  pyats.aereport               20.2
+  pyats.aetest                 20.2
+  pyats.async                  20.2
+  pyats.connections            20.2
+  pyats.datastructures         20.2
+  pyats.easypy                 20.2
+  pyats.kleenex                20.2
+  pyats.log                    20.2
+  pyats.reporter               20.2
+  pyats.results                20.2
+  pyats.tcl                    20.2
+  pyats.topology               20.2
+  pyats.utils                  20.2
+  unicon                       20.2
+  unicon.plugins               20.2
+
+
+root@d4c00fd6662c:/pyats#
 
 ## Upgrade to the latest version of pyATS
 root@441cbac66b2e:/pyats# pip install pyats[full] --upgrade
@@ -204,6 +239,7 @@ The link above also has more information on installing and running Docker includ
 ## Download if needed and spin up the CiscoTestAutomation Container
 claudia@Claudias-iMac ~ % docker run -it cldeluna/bionic-immigrant
 
+## Note the prompt change from claudia@Claudias-iMac to root@441cbac66b2e.  You are now in your container as root (your prompts will obviously be different).
 ## Upgrade to the latest version of pyATS
 root@441cbac66b2e:/pyats# pip install pyats[full] --upgrade
 
@@ -219,7 +255,7 @@ root@441cbac66b2e:/pyats/pyats_intro# python first_genie.py
 
 ### Clone this Repository
 
-Now that you have your working environment, make sure you have cloned the the [pats_intro repository](https://github.com/cldeluna/pyats_intro).  This has everything you need to get started including sample Testbed files and some basic scripts.   These scripts are "genie" scripts because they use more of the Genie Library connect and parse functionality than the pyATS testing framework.
+Now that you have your working environment, make sure you have cloned the the [pats_intro repository](https://github.com/cldeluna/pyats_intro).  This has everything you need to get started including sample Testbed files and some basic scripts.   These scripts are named "genie" scripts because they use more of the Genie Library connect and parse functionality than the pyATS testing framework.
 
 ```
 ## Install the Intro to pyATS (this) Repository
@@ -475,6 +511,7 @@ https://github.com/vsantiago113/pyATS-Boilerplate
 
 [pyATS | Genie - Getting Started! - Data Knox YouTube](https://www.youtube.com/watch?v=GhkkOxLheRY&t=327s)
 
+[Introduction to Genie | Python Network Automation! - IPvZero YouTube](https://www.youtube.com/watch?v=THgHwS-zVt8)
 
 
 ### Community Support
