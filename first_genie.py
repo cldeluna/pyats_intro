@@ -47,8 +47,8 @@ def main():
     print(json.dumps(response, indent=4))
     print(response.keys())
 
-    # csr1000v-1
-    # CLI: genie parse "show version" --testbed-file "devnet_sbx_testbed.yml" --devices "csr1000v-1"
+    # csr1000v-1 IOS-XE
+    # CLI: genie parse "show version" --testbed-file devnet_sbx_testbed.yml --devices "csr1000v-1"
     device = testbed.devices['csr1000v-1']
     device.connect()
     response = device.parse('show version')
