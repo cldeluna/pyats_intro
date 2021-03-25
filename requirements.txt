@@ -69,7 +69,7 @@ pysnmp==4.4.12
 python-dateutil==2.8.1
 python-engineio==3.12.1
 python-socketio==4.5.1
-PyYAML==5.3.1
+PyYAML==5.4
 requests==2.23.0
 robotframework==3.1.2
 scp==0.13.2
