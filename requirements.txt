@@ -78,7 +78,7 @@ textfsm==1.1.0
 tqdm==4.45.0
 unicon==20.4
 unicon.plugins==20.4
-urllib3==1.25.8
+urllib3==1.26.5
 websocket-client==0.57.0
 whichcraft==0.6.1
 xlrd==1.2.0
