@@ -36,7 +36,7 @@ MarkupSafe==1.1.1
 multidict==4.7.5
 netaddr==0.7.19
 netmiko==3.1.0
-paramiko==2.7.1
+paramiko==2.10.1
 pathspec==0.8.0
 ply==3.11
 poyo==0.5.0
