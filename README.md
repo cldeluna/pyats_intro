@@ -1,4 +1,3 @@
-
 # Getting Started with pyATS (and Genie)
 
 ### What is Python Automated Test System (pyATS)?
@@ -11,7 +10,7 @@ Add in Genie because at least originally you always heard about Genie and pyATS 
 
 For a while I dismissed it because I thought it was a Python testing framework like PyTest or Unittest but common sense told me there had to be more to it than that. After all, why would Cisco develop a Python testing framework?   Well, because it **IS** a testing framework but for your network rather than for your code!
 
-PyATS is a **python framework to help you test your network**!  Like, actual functional testing!!
+PyATS is a **Python framework to help you test your network**!  Like, actual functional testing!!
 
 - Are all my routes there after my change?
 - What changed from yesterday?
@@ -393,7 +392,7 @@ The *devenet_sbx_testbed.yml* Testbed file contains two devices from the DevNet 
 
 #### First Script
 
-The *first\_genie.py* pyATS Genie script instantiates the *devnet_sbx_testbed.yml* testbed file with the two DevNet Always On Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").  In this script, all of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics without alot of "extras" or flexibility (or any thought to good python code).
+The *first\_genie.py* pyATS Genie script instantiates the *devnet_sbx_testbed.yml* testbed file with the two DevNet Always On Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").  In this script, all of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics without alot of "extras" or flexibility (or any thought to good Python code).
 
 This script also includes the Genie CLI equivalent so you can compare.
 
