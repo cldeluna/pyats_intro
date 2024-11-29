@@ -21,11 +21,11 @@ Wow!
 
 But still, I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output to the screen. I want to work with that structured data and apply logic!   Luckily, the CLI is just one way to use this powerful framework!  It can be run from the CLI **or** as part of your Python script and there are good use cases for both.
 
-I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with scripts then there is alot of content out there for you to look at showing the CLI.  In my opinion, this just delays the inevitable but some of the scripts will note their CLI equivalents if you just can't help yourself.
+I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with scripts then there is a lot of content out there for you to look at showing the CLI.  In my opinion, this just delays the inevitable but some of the scripts will note their CLI equivalents if you just can't help yourself.
 
 For those of you already comfortable with basic Python scripts, then you are my target audience!
 
-In addition, if you spend alot of time parsing Cisco output then **you need to take a look at this module**!
+In addition, if you spend a lot of time parsing Cisco output then **you need to take a look at this module**!
 
 For those of you that know a bit about Ansible or Nornir, then think of pyATS as something comparable (to a degree) and complementary  (it is a framework) but focused on testing network devices.
 
@@ -102,7 +102,7 @@ Always start with a virtual environment.  See the [Real Python vENV primer](http
 
 Once you are in your virtual environment, you need to install the pyATS module and the Genie Libraries (now basically one framework encompassed in pyATS).
 
-There is alot of good material out there on how to install pyATS. Start with the [DevNet installation documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/installation/installation.html).
+There is a lot of good material out there on how to install pyATS. Start with the [DevNet installation documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/installation/installation.html).
 
 Most will tell you to install pyATS with the Genie library and that is a good minimum installation for testing and parsing.   
 
@@ -392,7 +392,7 @@ The *devenet_sbx_testbed.yml* Testbed file contains two devices from the DevNet 
 
 #### First Script
 
-The *first\_genie.py* pyATS Genie script instantiates the *devnet_sbx_testbed.yml* testbed file with the two DevNet Always On Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").  In this script, all of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics without alot of "extras" or flexibility (or any thought to good Python code).
+The *first\_genie.py* pyATS Genie script instantiates the *devnet_sbx_testbed.yml* testbed file with the two DevNet Always On Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").  In this script, all of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics without a lot of "extras" or flexibility (or any thought to good Python code).
 
 This script also includes the Genie CLI equivalent so you can compare.
 
