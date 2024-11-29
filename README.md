@@ -297,7 +297,7 @@ You can create your testbed with the *--encode-password* option to encode your p
 
 Tip: make sure your <name> matches your device hostname exactly!
 
-As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or netbox!  I won't cover that here but stay tuned, this is just getting you started with pyATS.
+As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or NetBox!  I won't cover that here but stay tuned, this is just getting you started with pyATS.
 
 ```
 
