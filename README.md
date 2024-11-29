@@ -98,7 +98,7 @@ So this is taking our automation to the next level.  We've been so hung up on lo
 
 PyATS is supported on Linux with Python 3.4 or greater (but 3.5 or later is recommended) . There is no Windows support at the time of writing (2020-04) but Mac OS X is supported.  For those of you on Windows, fear not, as you can always spin up a Virtual Machine or a Docker image.  Keep reading to learn more about your Docker image options.    
 
-Always start with a virtual environment.  See the [Real Python vENV primer](https://realpython.com/python-virtual-environments-a-primer/) for more details on that.
+Always start with a Python virtual environment.  See the [Real Python vENV primer](https://realpython.com/python-virtual-environments-a-primer/) for more details on that.
 
 Once you are in your virtual environment, you need to install the pyATS module and the Genie Libraries (now basically one framework encompassed in pyATS).
 
