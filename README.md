@@ -153,7 +153,7 @@ As an alternative, there is a [pyATS Docker image](https://developer.cisco.com/c
 $ docker run -it ciscotestautomation/pyats:latest /bin/bash
 ```
 
-Note: The Image documentation indicates that one of the Cisco example repositories is part of that container.  If it is not, simply git clone into your container (see below).
+Note: The [image documentation](https://github.com/CiscoTestAutomation/pyats-docker?tab=readme-ov-file#examples-and-templates) indicates that one of the Cisco example repositories is part of that container.  If it is not, simply git clone into your container (see below).
 
 At the time of this writing the image was a Debian image (buster) with pyATS 20.2 so remember to upgrade to use the latest and greatest pyATS features.
 
