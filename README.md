@@ -62,7 +62,7 @@ When dealing with network devices, particularly legacy network devices without A
 - Connect to devices to get show commands and process (parse) and/or save output to a file
 - Process (parse) text files of show commands to get structured data and then apply some logic depending on what I'm trying to do
 - Parse and Compare output for Validation
-  - Compare the PRE Mac address table to the POST Mac address table
+  - Compare the PRE MAC address table to the POST MAC address table
   - Compare the PRE routing table to the POST routing table
   - Compare PRE/POST interface configuration
   - Compare current configuration against a standard template
