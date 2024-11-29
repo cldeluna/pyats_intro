@@ -7,7 +7,7 @@ None of the answers I found to this question really made much sense to me initia
 
 A Python3 based **Test Automation and Validation Framework** developed by Cisco (but open and extensible to any vendor) is probably the best short answer but still too vague. 
 
-Add in Genie because at least originally you always heard bout Genie and pyATS together but it was never clear why.  Today Cisco is working hard to streamline this so that Genie (I like to think of it as the parsing and testing library) and pyATS (the overarching testing support framework) are bundled together. 
+Add in Genie because at least originally you always heard about Genie and pyATS together but it was never clear why.  Today Cisco is working hard to streamline this so that Genie (I like to think of it as the parsing and testing library) and pyATS (the overarching testing support framework) are bundled together. 
 
 For a while I dismissed it because I thought it was a Python testing framework like PyTest or Unittest but common sense told me there had to be more to it than that. After all, why would Cisco develop a Python testing framework?   Well, because it **IS** a testing framework but for your network rather than for your code!
 
