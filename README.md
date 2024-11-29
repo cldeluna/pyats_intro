@@ -238,7 +238,8 @@ The link above also has more information on installing and running Docker includ
 ## Download if needed and spin up the CiscoTestAutomation Container
 claudia@Claudias-iMac ~ % docker run -it cldeluna/bionic-immigrant
 
-## Note the prompt change from claudia@Claudias-iMac to root@441cbac66b2e.  You are now in your container as root (your prompts will obviously be different).
+## Note the prompt change from claudia@Claudias-iMac to root@441cbac66b2e.
+## You are now in your container as root (your prompts will obviously be different).
 ## Upgrade to the latest version of pyATS
 root@441cbac66b2e:/pyats# pip install pyats[full] --upgrade
 
