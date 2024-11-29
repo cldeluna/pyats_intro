@@ -290,7 +290,6 @@ pyats create testbed interactive --output my_testbed.yml
 
 ## Note the syntax change. As of 20.4.1 this syntax is used
 pyats create testbed interactive --output=my_testbed.yml
-
 ```
 
 You can create your testbed with the *--encode-password* option to encode your passwords but there are better ways to do that once you move into production.
@@ -300,7 +299,6 @@ Tip: make sure your <name> matches your device hostname exactly!
 As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or NetBox!  I won't cover that here but stay tuned, this is just getting you started with pyATS.
 
 ```
-
 # Creating a testbed YAML file from a CSV or Excel file (Sample template can be found in the repository)
 pyats create testbed file —-path=<.csv or Excel file> —-output=my_testbed_from_file.yml
 ```
@@ -310,7 +308,6 @@ I found the [Testbed Topology Schema](https://pubhub.devnetcloud.com/media/pyats
 Every section is broken down with explanatory comments, for example here is a section of the devices section:
 
 ```
-
 # devices block
 # -------------
 #   all testbed devices are described here
@@ -382,7 +379,6 @@ devices:
 
                 # Any other credential details
                 <key>: <value>
-
 ```
 
 
@@ -430,7 +426,6 @@ Now, with this second script I can execute pyATS on my local lab topology:
 Sample output:
 
 ```
-
 ======= TESTBED INFO =======
 
         Testbed Value (object): <Testbed object 'Underwater_Corporation_Testbed' at 0x7fb0f8938710>
@@ -457,8 +452,7 @@ Trying 10.1.10.102...
 You can also use the **-s** option and save the output to a JSON file for processing later.
 
 ```
-(pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml -c "show interfaces description" -s 
-
+(pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml -c "show interfaces description" -s
 ```
 
 Tip: 
@@ -545,7 +539,5 @@ Solution: Remember to install pats.contrib  **pip install pyats.contrib**
 
 
 pyats.topology.loader is a required dependency for this command. 'interactive' source cannot be found.
-
-
 ```
 
