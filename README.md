@@ -74,7 +74,7 @@ Accomplishing these workflows generally takes a number of modules and Python log
 
 For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko and then parse with TextFSM.
 
-With PyATS, I can do all of those activities in just a few commands!!
+With pyATS, I can do all of those activities in just a few commands!!
 
 So that is efficient but I've already done all the heavy lifting to do those workflows and it is even easier now that Netmiko and Ansible integrate TextFSM.   
 
@@ -386,7 +386,7 @@ devices:
 
 
 
-### Executing PyATS
+### Executing pyATS
 
 The *devenet_sbx_testbed.yml* Testbed file contains two devices from the DevNet Always On Sandbox so that you can get started immediately.
 
