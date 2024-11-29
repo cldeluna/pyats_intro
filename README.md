@@ -399,11 +399,11 @@ The *second\_genie.py* pyATS Genie script has more features.
 
 - It removes the code repetition and moves the repetitive code into a function.
 - The script takes arguments but uses the default  *devnet_sbx_testbed.yml* testbed file if no options are provided.
-  1. **-t** option to use a non default testbed file. 
+  1. `-t` option to use a non default testbed file. 
      Default Testbed file:  *devnet_sbx_testbed.yml*
-  2. **-s** option to save the structured data response to a JSON file 
+  2. `-s` option to save the structured data response to a JSON file 
      Default: False (don't save)
-  3. **-c** option to run a non default command 
+  3. `-c` option to run a non default command 
      Default: "show version"
 - Example showing how to iterate over all of the devices in the testbed file
 
