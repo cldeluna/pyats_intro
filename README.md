@@ -15,7 +15,7 @@ PyATS is a **Python framework to help you test your network**!  Like, actual fun
 - Are all my routes there after my change?
 - What changed from yesterday?
 - Log my changes for my Change Request ticket in a single command!
-- Do I have these bgp neighbors after my change?
+- Do I have these BGP neighbors after my change?
 
 Wow!
 
