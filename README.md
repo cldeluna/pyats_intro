@@ -255,7 +255,7 @@ root@441cbac66b2e:/pyats/pyats_intro# python first_genie.py
 
 ### Clone this Repository
 
-Now that you have your working environment, make sure you have cloned the the [pats_intro repository](https://github.com/cldeluna/pyats_intro).  This has everything you need to get started including sample Testbed files and some basic scripts.   These scripts are named "genie" scripts because they use more of the Genie Library connect and parse functionality than the pyATS testing framework.
+Now that you have your working environment, make sure you have cloned the [pyats_intro repository](https://github.com/cldeluna/pyats_intro).  This has everything you need to get started including sample Testbed files and some basic scripts.   These scripts are named "genie" scripts because they use more of the Genie Library connect and parse functionality than the pyATS testing framework.
 
 ```
 ## Install the Intro to pyATS (this) Repository
