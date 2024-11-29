@@ -212,7 +212,7 @@ root@d4c00fd6662c:/pyats#
 root@441cbac66b2e:/pyats# pip install pyats[full] --upgrade
 
 ## Install Git
-root@441cbac66b2e:/pyats# apt-get udpate
+root@441cbac66b2e:/pyats# apt-get update
 root@441cbac66b2e:/pyats# apt-get install git-core
 Y
 
@@ -222,7 +222,7 @@ root@441cbac66b2e:/pyats# cd pyats_intro
 root@441cbac66b2e:/pyats/pyats_intro# python first_genie.py
 
 ## Install the Cisco pyATS Example Repositories
-## pyATS | Library Usages, Examples & etc
+## pyATS | Library Usages, Examples, etc
 root@441cbac66b2e:/pyats# git clone https://github.com/CiscoTestAutomation/examples
 ## pyATS example solutions for NetDevOps use cases
 root@441cbac66b2e:/pyats# git clone https://github.com/CiscoTestAutomation/solutions_examples
