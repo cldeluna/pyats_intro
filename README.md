@@ -72,7 +72,7 @@ Accomplishing these workflows generally takes a number of modules and Python log
 
 ***Parsing Text to get structured data***
 
-For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko and then parse with TextFMS.
+For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko and then parse with TextFSM.
 
 With PyATS, I can do all of those activities in just a few commands!!
 
