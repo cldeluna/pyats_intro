@@ -385,7 +385,7 @@ devices:
 
 ### Executing pyATS
 
-The *devenet_sbx_testbed.yml* Testbed file contains two devices from the DevNet Always On Sandbox so that you can get started immediately.
+The *devnet_sbx_testbed.yml* Testbed file contains two devices from the DevNet Always On Sandbox so that you can get started immediately.
 
 #### First Script
 
