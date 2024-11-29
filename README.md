@@ -46,7 +46,7 @@ Official Documentation:
 
 ### Why do I care?
 
-I can't answer this question for you but I can tell you why its of interest to me. 
+I can't answer this question for you but I can tell you why it is of interest to me. 
 
 - Arguably an easier way to parse data from legacy network devices particularly if you are just starting out
 - Easy way to compare "state" and configurations
@@ -76,7 +76,7 @@ For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko a
 
 With PyATS, I can do all of those activities in just a few commands!!
 
-So that is efficient but I've already done all the heavy lifting to do those workflows and its even easier now that Netmiko and Ansible integrate TextFSM.   
+So that is efficient but I've already done all the heavy lifting to do those workflows and it is even easier now that Netmiko and Ansible integrate TextFSM.   
 
 So why should you take a look at pyATS?
 
@@ -90,7 +90,7 @@ With parsing, we've just scratched the surface of pyATS.    We have the structur
 
 PyATS is very good at parsing because it **needs structured data to automate the testing of your network**.
 
-So this is taking our automation to the next level.  We've been so hung up on logging in to the device, running commands, getting output, and parsing that output that sometimes the effort to get that point can feel like the final accomplishment.  While it is an accomplishment, its only the beginning!
+So this is taking our automation to the next level.  We've been so hung up on logging in to the device, running commands, getting output, and parsing that output that sometimes the effort to get that point can feel like the final accomplishment.  While it is an accomplishment, it is only the beginning!
 
 
 
@@ -472,7 +472,7 @@ Tip:
   Search for 'show ip int br' is ambiguous. Please be more specific in your keywords.
   ```
 
-- When using command shorthand like "sh int status"  you must also make sure its a valid command for your type of network OS (IOS etc).
+- When using command shorthand like "sh int status" you must also make sure it is a valid command for your type of network OS (IOS, etc).
 
   ```
   genie.metaparser.util.exceptions.InvalidCommandError: Invalid command has been executed
