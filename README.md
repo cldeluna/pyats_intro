@@ -292,7 +292,7 @@ pyats create testbed interactive --output my_testbed.yml
 pyats create testbed interactive --output=my_testbed.yml
 ```
 
-You can create your testbed with the *--encode-password* option to encode your passwords but there are better ways to do that once you move into production.
+You can create your testbed with the `--encode-password` option to encode your passwords but there are better ways to do that once you move into production.
 
 Tip: make sure your <name> matches your device hostname exactly!
 
@@ -449,7 +449,7 @@ Trying 10.1.10.102...
 <...>
 ```
 
-You can also use the **-s** option and save the output to a JSON file for processing later.
+You can also use the `-s` option and save the output to a JSON file for processing later.
 
 ```
 (pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml -c "show interfaces description" -s
@@ -457,7 +457,7 @@ You can also use the **-s** option and save the output to a JSON file for proces
 
 Tip: 
 
-- Make sure that the command you are providing with the -c option is a valid Genie Parser command for your type of network OS (IOS etc). Check the [list of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers).  
+- Make sure that the command you are providing with the `-c` option is a valid Genie Parser command for your type of network OS (IOS etc). Check the [list of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers).  
 
   - If you see an error like this make sure you are using a valid parser and that you are not using shorthand
 
