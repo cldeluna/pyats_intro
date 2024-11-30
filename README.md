@@ -106,7 +106,7 @@ There is a lot of good material out there on how to install pyATS. Start with th
 
 Most will tell you to install pyATS with the Genie library and that is a good minimum installation for testing and parsing.   
 
-```bash
+```
 pip install pyats[library]
 ```
 
@@ -134,16 +134,14 @@ pip install "pyats[full]"
 ```
 
 
-
 #### Upgrading Your Environment
 
-```
+```bash
 pip install pyats[full] --upgrade
 or
 pip install pyats[library] --upgrade
 pip install pyats.contrib --upgrade
 ```
-
 
 
 #### Docker Image
@@ -161,7 +159,7 @@ $ docker run -it ciscotestautomation/pyats:latest /bin/bash
 
 At the time of this writing the image was a Debian image (buster) with pyATS 20.2 so remember to upgrade to use the latest and greatest pyATS features.
 
-```
+```bash
 ## Download if needed and spin up the CiscoTestAutomation Container
 claudia@Claudias-iMac ~ % docker run -it ciscotestautomation/pyats:latest
 
@@ -238,7 +236,7 @@ You can also use one of my Docker images, **bionic-immigrant**, which comes with
 
 The link above also has more information on installing and running Docker including a cheat sheet.
 
-```
+```bash
 ## Download if needed and spin up the CiscoTestAutomation Container
 claudia@Claudias-iMac ~ % docker run -it cldeluna/bionic-immigrant
 
@@ -256,7 +254,6 @@ root@441cbac66b2e:/pyats/pyats_intro# python first_genie.py
 ```
 
 
-
 ### Clone this Repository
 
 Now that you have your working environment, make sure you have cloned the [pyats_intro repository](https://github.com/cldeluna/pyats_intro).  This has everything you need to get started including sample Testbed files and some basic scripts.   These scripts are named "genie" scripts because they use more of the Genie Library connect and parse functionality than the pyATS testing framework.
@@ -267,7 +264,6 @@ root@441cbac66b2e:/pyats# git clone https://github.com/cldeluna/pyats_intro.git
 root@441cbac66b2e:/pyats# cd pyats_intro
 root@441cbac66b2e:/pyats/pyats_intro# python first_genie.py
 ```
-
 
 
 ### Creating Your Testbed File
@@ -283,7 +279,7 @@ The pyATS/Genie CLI has a handy interactive script that will walk you through cr
 
 The **genie create testbed interactive**  command will walk you through some questions and then generate a properly formatted testbed file.  The command below will generate that file as *my_testbed.yml* in the local directory. You can provide a different path or subdirectory if you want to.  In production, I generally put testbed files in a subdirectory.
 
-```
+```bash
 ## Prior to pyATS version 20.4.1
 genie create testbed --output my_testbed.yml
 
@@ -306,7 +302,7 @@ You can create your testbed with the `--encode-password` option to encode your p
 
 As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or NetBox!  I won't cover that here but stay tuned, this is just getting you started with pyATS.
 
-```
+```bash
 # Creating a testbed YAML file from a CSV or Excel file (Sample template can be found in the repository)
 pyats create testbed file —-path=<.csv or Excel file> —-output=my_testbed_from_file.yml
 ```
@@ -315,7 +311,7 @@ I found the [Testbed Topology Schema](https://pubhub.devnetcloud.com/media/pyats
 
 Every section is broken down with explanatory comments, for example here is a section of the devices section:
 
-```
+```bash
 # devices block
 # -------------
 #   all testbed devices are described here
@@ -390,7 +386,6 @@ devices:
 ```
 
 
-
 ### Executing pyATS
 
 The *devnet_sbx_testbed.yml* Testbed file contains two devices from the DevNet Always On Sandbox so that you can get started immediately.
@@ -425,10 +420,9 @@ This second script is "better" code and provides the flexibility to run differen
 
 Now, with this second script I can execute pyATS on my local lab topology:
 
-```bash
+```
 (pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml
 ```
-
 
 
 Sample output:
@@ -546,4 +540,3 @@ Solution: Remember to install pats.contrib  **`pip install pyats.contrib`**
 
 pyats.topology.loader is a required dependency for this command. 'interactive' source cannot be found.
 ```
-
