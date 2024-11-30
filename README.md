@@ -161,7 +161,7 @@ At the time of this writing the image was a Debian image (buster) with pyATS 20.
 ## Download if needed and spin up the CiscoTestAutomation Container
 claudia@Claudias-iMac ~ % docker run -it ciscotestautomation/pyats:latest
 
-## Note the promt change indicating you are now in the container
+## Note the prompt change indicating you are now in the container
 root@441cbac66b2e:/pyats# cat /etc/*-release
 PRETTY_NAME="Debian GNU/Linux 10 (buster)"
 NAME="Debian GNU/Linux"
