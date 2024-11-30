@@ -517,12 +517,11 @@ There is an active community on Cisco Webex Teams open to everyone.
 
 ###  Glossary
 
-UUT = Unit Under Test
-
-DUT = Device Under Test
-
-EUT = Equipment Under Test
-
+| Abbreviation | Meaning              |
+| :----------: | :------------------- |
+| UUT          | Unit Under Test      |
+| DUT          | Device Under Test    |
+| EUT          | Equipment Under Test |
 
 
 ### Troubleshooting
