@@ -485,7 +485,7 @@ Tip:
 
 [List of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers)
 
-[pyATS Release history from Libraries.io](https://libraries.io/pypi/pyats)
+[pyATS Release History from Libraries.io](https://libraries.io/pypi/pyats)
 
 
 
