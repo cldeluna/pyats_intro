@@ -126,7 +126,8 @@ pyats.robot                  20.4
 robotframework               3.1.2      
 ```
 
-*Note:  On my Mac running Catalina with Zsh I had to quote the install string:*
+> [!NOTE]
+> On my Mac running Catalina with Zsh I had to quote the install string:
 
 ```
 pip install "pyats[full]"
@@ -153,7 +154,10 @@ As an alternative, there is a [pyATS Docker image](https://developer.cisco.com/c
 $ docker run -it ciscotestautomation/pyats:latest /bin/bash
 ```
 
-Note: The [image documentation](https://github.com/CiscoTestAutomation/pyats-docker?tab=readme-ov-file#examples-and-templates) indicates that one of the Cisco example repositories is part of that container.  If it is not, simply git clone into your container (see below).
+> [!NOTE]
+> The [image documentation](https://github.com/CiscoTestAutomation/pyats-docker?tab=readme-ov-file#examples-and-templates)
+> indicates that one of the Cisco example repositories is part of that
+> container.  If it is not, simply `git clone` into your container (see below).
 
 At the time of this writing the image was a Debian image (buster) with pyATS 20.2 so remember to upgrade to use the latest and greatest pyATS features.
 
@@ -272,7 +276,10 @@ For those who are somewhat familiar with Ansible, you can think of this as your 
 
 The pyATS/Genie CLI has a handy interactive script that will walk you through creating your first testbed file without having to dig into the syntax of the file.
 
-Note: You will need to pip install some Python Excel modules to run this but luckily it will tell you what you need if you don't already have them installed (xlsxwriter, xlrd, xlwt).
+> [!NOTE]
+> You will need to `pip install` some Python Excel modules to run this but luckily
+> it will tell you what you need if you don't already have them installed
+> (xlsxwriter, xlrd, xlwt).
 
 The **genie create testbed interactive**  command will walk you through some questions and then generate a properly formatted testbed file.  The command below will generate that file as *my_testbed.yml* in the local directory. You can provide a different path or subdirectory if you want to.  In production, I generally put testbed files in a subdirectory.
 
@@ -294,7 +301,8 @@ pyats create testbed interactive --output=my_testbed.yml
 
 You can create your testbed with the `--encode-password` option to encode your passwords but there are better ways to do that once you move into production.
 
-Tip: make sure your <name> matches your device hostname exactly!
+> [!TIP]
+> Make sure your &lt;name&gt; matches your device hostname exactly!
 
 As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or NetBox!  I won't cover that here but stay tuned, this is just getting you started with pyATS.
 
@@ -461,18 +469,15 @@ Tip:
 
   - If you see an error like this make sure you are using a valid parser and that you are not using shorthand
 
-  ```
-  Exception: Could not find parser for 'show interface status'
-  or 
-  Search for 'show ip int br' is ambiguous. Please be more specific in your keywords.
-  ```
+> [!WARNING]
+> Exception: Could not find parser for 'show interface status'
+> or 
+> Search for 'show ip int br' is ambiguous. Please be more specific in your keywords.
 
 - When using command shorthand like "sh int status" you must also make sure it is a valid command for your type of network OS (IOS, etc).
 
-  ```
-  genie.metaparser.util.exceptions.InvalidCommandError: Invalid command has been executed
-  ```
-
+> [!WARNING]
+> genie.metaparser.util.exceptions.InvalidCommandError: Invalid command has been executed
   
 
 ### Handy Links
@@ -530,9 +535,10 @@ EUT = Equipment Under Test
 
 Action:  Creating a Testbed
 
-Error: pyats.topology.loader is a required dependency for this command 
+> [!WARNING]
+> Error: pyats.topology.loader is a required dependency for this command 
 
-Solution: Remember to install pats.contrib  **pip install pyats.contrib**
+Solution: Remember to install pats.contrib  **`pip install pyats.contrib`**
 
 ```
 (test) root@3a10684f8c82:# pyats create testbed interactive --output my_testbed.yml
