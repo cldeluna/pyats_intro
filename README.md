@@ -298,7 +298,7 @@ pyats create testbed interactive --output=my_testbed.yml
 You can create your testbed with the `--encode-password` option to encode your passwords but there are better ways to do that once you move into production.
 
 > [!TIP]
-> Make sure your &lt;name&gt; matches your device hostname exactly!
+> Make sure your \<name\> matches your device hostname exactly!
 
 As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or NetBox!  I won't cover that here but stay tuned, this is just getting you started with pyATS.
 
