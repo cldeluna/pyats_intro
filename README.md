@@ -39,7 +39,7 @@ For those of you that know a bit about Ansible or Nornir, then think of pyATS as
 | Diff two different outputs                   | genie diff                                            | Python code <br />Ansible Playbook                           |
 | Testing                                      | Stay Tuned!!!                                         | Python code <br />Ansible Playbook                           |
 
-Official Documentation:
+#### Official Documentation:
 
 - [pyATS Documentation](https://pubhub.devnetcloud.com/media/pyats/docs/index.html)
 - [pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
@@ -70,7 +70,7 @@ When dealing with network devices, particularly legacy network devices without A
 
 Accomplishing these workflows generally takes a number of modules and Python logic but they all have one thing in common: 
 
-***Parsing Text to get structured data***
+#### ***Parsing Text to get structured data***
 
 For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko and then parse with TextFSM.
 
