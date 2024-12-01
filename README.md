@@ -478,43 +478,41 @@ You can also use the `-s` option and save the output to a JSON file for processi
 
 ### Handy Links
 
-[pyATS Documentation](https://pubhub.devnetcloud.com/media/pyats/docs/index.html)
+- [pyATS Documentation](https://pubhub.devnetcloud.com/media/pyats/docs/index.html)
 
-[pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
+- [pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
 
-[Genie Feature Browser](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/)
+- [Genie Feature Browser](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/)
 
-[List of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers)
+- [List of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers)
 
-[pyATS Release History from Libraries.io](https://libraries.io/pypi/pyats)
+- [pyATS Release History from Libraries.io](https://libraries.io/pypi/pyats)
 
 
 
 ### GitHub Repositories from Cisco and other Network Engineers
 
-https://github.com/CiscoTestAutomation/examples
+- https://github.com/CiscoTestAutomation/examples
 
-https://github.com/kecorbin/pyats-network-checks/blob/master/devnet_sandbox.yaml
+- https://github.com/kecorbin/pyats-network-checks/blob/master/devnet_sandbox.yaml
 
-https://github.com/vsantiago113/pyATS-Boilerplate
+- https://github.com/vsantiago113/pyATS-Boilerplate
 
 
 
 ### Tutorials
 
-[pyATS on YouTube](https://www.youtube.com/results?search_query=pyats)
+- [pyATS on YouTube](https://www.youtube.com/results?search_query=pyats)
 
-[pyATS | Genie - Getting Started! - Data Knox YouTube](https://www.youtube.com/watch?v=GhkkOxLheRY&t=327s)
+- [pyATS | Genie - Getting Started! - Data Knox YouTube](https://www.youtube.com/watch?v=GhkkOxLheRY&t=327s)
 
-[Introduction to Genie | Python Network Automation! - IPvZero YouTube](https://www.youtube.com/watch?v=THgHwS-zVt8)
+- [Introduction to Genie | Python Network Automation! - IPvZero YouTube](https://www.youtube.com/watch?v=THgHwS-zVt8)
 
 
 ### Community Support
 
-There is an active community on Cisco Webex Teams open to everyone.
-
-- You can join this WebEx Teams space using https://eurl.io/#r18UzrQVr or by finding it listed at https://eurl.io/
-
+- There is an active community on Cisco Webex Teams open to everyone.
+  - You can join this WebEx Teams space using https://eurl.io/#r18UzrQVr or by finding it listed at https://eurl.io/
 
 
 ###  Glossary
