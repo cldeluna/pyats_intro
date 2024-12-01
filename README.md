@@ -128,10 +128,10 @@ robotframework               3.1.2
 
 > [!NOTE]
 > On my Mac running Catalina with Zsh I had to quote the install string:
-
-```
-pip install "pyats[full]"
-```
+>
+> ```
+> pip install "pyats[full]"
+> ```
 
 
 #### Upgrading Your Environment
