@@ -457,18 +457,20 @@ You can also use the `-s` option and save the output to a JSON file for processi
 (pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml -c "show interfaces description" -s
 ```
 
-Tip: 
-
-- Make sure that the command you are providing with the `-c` option is a valid Genie Parser command for your type of network OS (IOS etc). Check the [list of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers).  
-
-  - If you see an error like this make sure you are using a valid parser and that you are not using shorthand
+> [!TIP]
+> Make sure that the command you are providing with the `-c` option is a valid
+> Genie Parser command for your type of network OS (IOS, etc). Check the
+> [list of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers).
+>
+>  - If you see an error like this make sure you are using a valid parser and that you are not using shorthand
 
 > [!WARNING]
 > Exception: Could not find parser for 'show interface status'
 > or 
 > Search for 'show ip int br' is ambiguous. Please be more specific in your keywords.
 
-- When using command shorthand like "sh int status" you must also make sure it is a valid command for your type of network OS (IOS, etc).
+> [!TIP]
+> - When using command shorthand like "sh int status" you must also make sure it is a valid command for your type of network OS (IOS, etc).
 
 > [!WARNING]
 > genie.metaparser.util.exceptions.InvalidCommandError: Invalid command has been executed
@@ -526,16 +528,18 @@ There is an active community on Cisco Webex Teams open to everyone.
 
 ### Troubleshooting
 
-Action:  Creating a Testbed
+> [!NOTE]
+> Action:  Creating a Testbed
 
 > [!WARNING]
 > Error: pyats.topology.loader is a required dependency for this command 
 
-Solution: Remember to install pats.contrib  **`pip install pyats.contrib`**
-
-```
-(test) root@3a10684f8c82:# pyats create testbed interactive --output my_testbed.yml
-
-
-pyats.topology.loader is a required dependency for this command. 'interactive' source cannot be found.
-```
+> [!TIP]
+> Solution: Remember to install pats.contrib  **`pip install pyats.contrib`**
+>
+> ```
+> (test) root@3a10684f8c82:# pyats create testbed interactive --output my_testbed.yml
+>
+>
+> pyats.topology.loader is a required dependency for this command. 'interactive' source cannot be found.
+> ```
