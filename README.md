@@ -1,4 +1,3 @@
-
 # Getting Started with pyATS (and Genie)
 
 ### What is Python Automated Test System (pyATS)?
@@ -7,26 +6,26 @@ None of the answers I found to this question really made much sense to me initia
 
 A Python3 based **Test Automation and Validation Framework** developed by Cisco (but open and extensible to any vendor) is probably the best short answer but still too vague. 
 
-Add in Genie because at least originally you always heard bout Genie and pyATS together but it was never clear why.  Today Cisco is working hard to streamline this so that Genie (I like to think of it as the parsing and testing library) and pyATS (the overarching testing support framework) are bundled together. 
+Add in Genie because at least originally you always heard about Genie and pyATS together but it was never clear why.  Today Cisco is working hard to streamline this so that Genie (I like to think of it as the parsing and testing library) and pyATS (the overarching testing support framework) are bundled together. 
 
 For a while I dismissed it because I thought it was a Python testing framework like PyTest or Unittest but common sense told me there had to be more to it than that. After all, why would Cisco develop a Python testing framework?   Well, because it **IS** a testing framework but for your network rather than for your code!
 
-PyATS is a **python framework to help you test your network**!  Like, actual functional testing!!
+PyATS is a **Python framework to help you test your network**!  Like, actual functional testing!!
 
 - Are all my routes there after my change?
 - What changed from yesterday?
 - Log my changes for my Change Request ticket in a single command!
-- Do I have these bgp neighbors after my change?
+- Do I have these BGP neighbors after my change?
 
 Wow!
 
 But still, I didn't pursue it because everything I saw focused on the CLI options available and while clearly powerful and returning structured data I'm far more interested in working with the data in a script.  I don't want structured data output to the screen. I want to work with that structured data and apply logic!   Luckily, the CLI is just one way to use this powerful framework!  It can be run from the CLI **or** as part of your Python script and there are good use cases for both.
 
-I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with scripts then there is alot of content out there for you to look at showing the CLI.  In my opinion, this just delays the inevitable but some of the scripts will note their CLI equivalents if you just can't help yourself.
+I'm not going to focus too much on the CLI version of this.  If you are more comfortable not having to deal with scripts then there is a lot of content out there for you to look at showing the CLI.  In my opinion, this just delays the inevitable but some of the scripts will note their CLI equivalents if you just can't help yourself.
 
 For those of you already comfortable with basic Python scripts, then you are my target audience!
 
-In addition, if you spend alot of time parsing Cisco output then **you need to take a look at this module**!
+In addition, if you spend a lot of time parsing Cisco output then **you need to take a look at this module**!
 
 For those of you that know a bit about Ansible or Nornir, then think of pyATS as something comparable (to a degree) and complementary  (it is a framework) but focused on testing network devices.
 
@@ -40,14 +39,14 @@ For those of you that know a bit about Ansible or Nornir, then think of pyATS as
 | Diff two different outputs                   | genie diff                                            | Python code <br />Ansible Playbook                           |
 | Testing                                      | Stay Tuned!!!                                         | Python code <br />Ansible Playbook                           |
 
-Official Documentation:
+#### Official Documentation:
 
 - [pyATS Documentation](https://pubhub.devnetcloud.com/media/pyats/docs/index.html)
 - [pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
 
 ### Why do I care?
 
-I can't answer this question for you but I can tell you why its of interest to me. 
+I can't answer this question for you but I can tell you why it is of interest to me. 
 
 - Arguably an easier way to parse data from legacy network devices particularly if you are just starting out
 - Easy way to compare "state" and configurations
@@ -63,7 +62,7 @@ When dealing with network devices, particularly legacy network devices without A
 - Connect to devices to get show commands and process (parse) and/or save output to a file
 - Process (parse) text files of show commands to get structured data and then apply some logic depending on what I'm trying to do
 - Parse and Compare output for Validation
-  - Compare the PRE Mac address table to the POST Mac address table
+  - Compare the PRE MAC address table to the POST MAC address table
   - Compare the PRE routing table to the POST routing table
   - Compare PRE/POST interface configuration
   - Compare current configuration against a standard template
@@ -71,13 +70,13 @@ When dealing with network devices, particularly legacy network devices without A
 
 Accomplishing these workflows generally takes a number of modules and Python logic but they all have one thing in common: 
 
-***Parsing Text to get structured data***
+#### ***Parsing Text to get structured data***
 
-For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko and then parse with TextFMS.
+For example, if I'm getting show commands I'll use Ansible, Nornir, or Netmiko and then parse with TextFSM.
 
-With PyATS, I can do all of those activities in just a few commands!!
+With pyATS, I can do all of those activities in just a few commands!!
 
-So that is efficient but I've already done all the heavy lifting to do those workflows and its even easier now that Netmiko and Ansible integrate TextFSM.   
+So that is efficient but I've already done all the heavy lifting to do those workflows and it is even easier now that Netmiko and Ansible integrate TextFSM.   
 
 So why should you take a look at pyATS?
 
@@ -91,7 +90,7 @@ With parsing, we've just scratched the surface of pyATS.    We have the structur
 
 PyATS is very good at parsing because it **needs structured data to automate the testing of your network**.
 
-So this is taking our automation to the next level.  We've been so hung up on logging in to the device, running commands, getting output, and parsing that output that sometimes the effort to get that point can feel like the final accomplishment.  While it is an accomplishment, its only the beginning!
+So this is taking our automation to the next level.  We've been so hung up on logging in to the device, running commands, getting output, and parsing that output that sometimes the effort to get that point can feel like the final accomplishment.  While it is an accomplishment, it is only the beginning!
 
 
 
@@ -99,15 +98,15 @@ So this is taking our automation to the next level.  We've been so hung up on lo
 
 PyATS is supported on Linux with Python 3.4 or greater (but 3.5 or later is recommended) . There is no Windows support at the time of writing (2020-04) but Mac OS X is supported.  For those of you on Windows, fear not, as you can always spin up a Virtual Machine or a Docker image.  Keep reading to learn more about your Docker image options.    
 
-Always start with a virtual environment.  See the [Real Python vENV primer](https://realpython.com/python-virtual-environments-a-primer/) for more details on that.
+Always start with a Python virtual environment.  See the [Real Python vENV primer](https://realpython.com/python-virtual-environments-a-primer/) for more details on that.
 
 Once you are in your virtual environment, you need to install the pyATS module and the Genie Libraries (now basically one framework encompassed in pyATS).
 
-There is alot of good material out there on how to install pyATS. Start with the [DevNet installation documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/installation/installation.html).
+There is a lot of good material out there on how to install pyATS. Start with the [DevNet installation documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/installation/installation.html).
 
 Most will tell you to install pyATS with the Genie library and that is a good minimum installation for testing and parsing.   
 
-```bash
+```
 pip install pyats[library]
 ```
 
@@ -127,23 +126,22 @@ pyats.robot                  20.4
 robotframework               3.1.2      
 ```
 
-*Note:  On my Mac running Catalina with Zsh I had to quote the install string:*
-
-```
-pip install "pyats[full]"
-```
-
+> [!NOTE]
+> On my Mac running Catalina with Zsh I had to quote the install string:
+>
+> ```
+> pip install "pyats[full]"
+> ```
 
 
 #### Upgrading Your Environment
 
-```
+```bash
 pip install pyats[full] --upgrade
 or
 pip install pyats[library] --upgrade
 pip install pyats.contrib --upgrade
 ```
-
 
 
 #### Docker Image
@@ -154,15 +152,18 @@ As an alternative, there is a [pyATS Docker image](https://developer.cisco.com/c
 $ docker run -it ciscotestautomation/pyats:latest /bin/bash
 ```
 
-Note: The Image documentation indicates that one of the Cisco example repositories is part of that container.  If it is not, simply git clone into your container (see below).
+> [!NOTE]
+> The [image documentation](https://github.com/CiscoTestAutomation/pyats-docker?tab=readme-ov-file#examples-and-templates)
+> indicates that one of the Cisco example repositories is part of that
+> container.  If it is not, simply `git clone` into your container (see below).
 
 At the time of this writing the image was a Debian image (buster) with pyATS 20.2 so remember to upgrade to use the latest and greatest pyATS features.
 
-```
+```bash
 ## Download if needed and spin up the CiscoTestAutomation Container
 claudia@Claudias-iMac ~ % docker run -it ciscotestautomation/pyats:latest
 
-## Note the promt change indicating you are now in the container
+## Note the prompt change indicating you are now in the container
 root@441cbac66b2e:/pyats# cat /etc/*-release
 PRETTY_NAME="Debian GNU/Linux 10 (buster)"
 NAME="Debian GNU/Linux"
@@ -213,7 +214,7 @@ root@d4c00fd6662c:/pyats#
 root@441cbac66b2e:/pyats# pip install pyats[full] --upgrade
 
 ## Install Git
-root@441cbac66b2e:/pyats# apt-get udpate
+root@441cbac66b2e:/pyats# apt-get update
 root@441cbac66b2e:/pyats# apt-get install git-core
 Y
 
@@ -223,7 +224,7 @@ root@441cbac66b2e:/pyats# cd pyats_intro
 root@441cbac66b2e:/pyats/pyats_intro# python first_genie.py
 
 ## Install the Cisco pyATS Example Repositories
-## pyATS | Library Usages, Examples & etc
+## pyATS | Library Usages, Examples, etc
 root@441cbac66b2e:/pyats# git clone https://github.com/CiscoTestAutomation/examples
 ## pyATS example solutions for NetDevOps use cases
 root@441cbac66b2e:/pyats# git clone https://github.com/CiscoTestAutomation/solutions_examples
@@ -235,11 +236,12 @@ You can also use one of my Docker images, **bionic-immigrant**, which comes with
 
 The link above also has more information on installing and running Docker including a cheat sheet.
 
-```
+```bash
 ## Download if needed and spin up the CiscoTestAutomation Container
 claudia@Claudias-iMac ~ % docker run -it cldeluna/bionic-immigrant
 
-## Note the prompt change from claudia@Claudias-iMac to root@441cbac66b2e.  You are now in your container as root (your prompts will obviously be different).
+## Note the prompt change from claudia@Claudias-iMac to root@441cbac66b2e.
+## You are now in your container as root (your prompts will obviously be different).
 ## Upgrade to the latest version of pyATS
 root@441cbac66b2e:/pyats# pip install pyats[full] --upgrade
 
@@ -252,10 +254,9 @@ root@441cbac66b2e:/pyats/pyats_intro# python first_genie.py
 ```
 
 
-
 ### Clone this Repository
 
-Now that you have your working environment, make sure you have cloned the the [pats_intro repository](https://github.com/cldeluna/pyats_intro).  This has everything you need to get started including sample Testbed files and some basic scripts.   These scripts are named "genie" scripts because they use more of the Genie Library connect and parse functionality than the pyATS testing framework.
+Now that you have your working environment, make sure you have cloned the [pyats_intro repository](https://github.com/cldeluna/pyats_intro).  This has everything you need to get started including sample Testbed files and some basic scripts.   These scripts are named "genie" scripts because they use more of the Genie Library connect and parse functionality than the pyATS testing framework.
 
 ```
 ## Install the Intro to pyATS (this) Repository
@@ -265,18 +266,20 @@ root@441cbac66b2e:/pyats/pyats_intro# python first_genie.py
 ```
 
 
-
 ### Creating Your Testbed File
 
 For those who are somewhat familiar with Ansible, you can think of this as your inventory or hosts file.  In fact, you can build your testbed from your Ansible hosts file. The testbed file actually has some additional capabilities that allow you to define your topology (this is huge and will be necessary when you get to testing!!) but to get started we just want to define our devices and how to connect to them.
 
 The pyATS/Genie CLI has a handy interactive script that will walk you through creating your first testbed file without having to dig into the syntax of the file.
 
-Note: You will need to pip install some Python Excel modules to run this but luckily it will tell you what you need if you don't already have them installed (xlsxwriter, xlrd, xlwt).
+> [!NOTE]
+> You will need to `pip install` some Python Excel modules to run this but luckily
+> it will tell you what you need if you don't already have them installed
+> (xlsxwriter, xlrd, xlwt).
 
 The **genie create testbed interactive**  command will walk you through some questions and then generate a properly formatted testbed file.  The command below will generate that file as *my_testbed.yml* in the local directory. You can provide a different path or subdirectory if you want to.  In production, I generally put testbed files in a subdirectory.
 
-```
+```bash
 ## Prior to pyATS version 20.4.1
 genie create testbed --output my_testbed.yml
 
@@ -290,17 +293,16 @@ pyats create testbed interactive --output my_testbed.yml
 
 ## Note the syntax change. As of 20.4.1 this syntax is used
 pyats create testbed interactive --output=my_testbed.yml
-
 ```
 
-You can create your testbed with the *--encode-password* option to encode your passwords but there are better ways to do that once you move into production.
+You can create your testbed with the `--encode-password` option to encode your passwords but there are better ways to do that once you move into production.
 
-Tip: make sure your <name> matches your device hostname exactly!
+> [!TIP]
+> Make sure your \<name\> matches your device hostname exactly!
 
-As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or netbox!  I won't cover that here but stay tuned, this is just getting you started with pyATS.
+As of pyATS version 20.4.1, you can also generate testbed files from a file (CSV, Excel), an Ansible hosts file, or NetBox!  I won't cover that here but stay tuned, this is just getting you started with pyATS.
 
-```
-
+```bash
 # Creating a testbed YAML file from a CSV or Excel file (Sample template can be found in the repository)
 pyats create testbed file —-path=<.csv or Excel file> —-output=my_testbed_from_file.yml
 ```
@@ -309,8 +311,7 @@ I found the [Testbed Topology Schema](https://pubhub.devnetcloud.com/media/pyats
 
 Every section is broken down with explanatory comments, for example here is a section of the devices section:
 
-```
-
+```bash
 # devices block
 # -------------
 #   all testbed devices are described here
@@ -382,18 +383,16 @@ devices:
 
                 # Any other credential details
                 <key>: <value>
-
 ```
 
 
+### Executing pyATS
 
-### Executing PyATS
-
-The *devenet_sbx_testbed.yml* Testbed file contains two devices from the DevNet Always On Sandbox so that you can get started immediately.
+The *devnet_sbx_testbed.yml* Testbed file contains two devices from the DevNet Always On Sandbox so that you can get started immediately.
 
 #### First Script
 
-The *first\_genie.py* pyATS Genie script instantiates the *devnet_sbx_testbed.yml* testbed file with the two DevNet Always On Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").  In this script, all of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics without alot of "extras" or flexibility (or any thought to good python code).
+The *first\_genie.py* pyATS Genie script instantiates the *devnet_sbx_testbed.yml* testbed file with the two DevNet Always On Sandbox devices.   It then establishes a connection to each device and executes a show command ("show version").  In this script, all of this is hardcoded and there is lots of code repetition but this first script is intended to show the basics without a lot of "extras" or flexibility (or any thought to good Python code).
 
 This script also includes the Genie CLI equivalent so you can compare.
 
@@ -403,11 +402,11 @@ The *second\_genie.py* pyATS Genie script has more features.
 
 - It removes the code repetition and moves the repetitive code into a function.
 - The script takes arguments but uses the default  *devnet_sbx_testbed.yml* testbed file if no options are provided.
-  1. **-t** option to use a non default testbed file. 
+  1. `-t` option to use a non default testbed file. 
      Default Testbed file:  *devnet_sbx_testbed.yml*
-  2. **-s** option to save the structured data response to a JSON file 
+  2. `-s` option to save the structured data response to a JSON file 
      Default: False (don't save)
-  3. **-c** option to run a non default command 
+  3. `-c` option to run a non default command 
      Default: "show version"
 - Example showing how to iterate over all of the devices in the testbed file
 
@@ -421,16 +420,14 @@ This second script is "better" code and provides the flexibility to run differen
 
 Now, with this second script I can execute pyATS on my local lab topology:
 
-```bash
+```
 (pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml
 ```
-
 
 
 Sample output:
 
 ```
-
 ======= TESTBED INFO =======
 
         Testbed Value (object): <Testbed object 'Underwater_Corporation_Testbed' at 0x7fb0f8938710>
@@ -454,98 +451,93 @@ Trying 10.1.10.102...
 <...>
 ```
 
-You can also use the **-s** option and save the output to a JSON file for processing later.
+You can also use the `-s` option and save the output to a JSON file for processing later.
 
 ```
-(pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml -c "show interfaces description" -s 
-
+(pyats) claudia@Claudias-iMac pyats_intro % python second_genie.py -t uwaco_testbed.yml -c "show interfaces description" -s
 ```
 
-Tip: 
+> [!TIP]
+> Make sure that the command you are providing with the `-c` option is a valid
+> Genie Parser command for your type of network OS (IOS, etc). Check the
+> [list of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers).
+>
+>  - If you see an error like this make sure you are using a valid parser and that you are not using shorthand
 
-- Make sure that the command you are providing with the -c option is a valid Genie Parser command for your type of network OS (IOS etc). Check the [list of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers).  
+> [!WARNING]
+> Exception: Could not find parser for 'show interface status'
+> or 
+> Search for 'show ip int br' is ambiguous. Please be more specific in your keywords.
 
-  - If you see an error like this make sure you are using a valid parser and that you are not using shorthand
+> [!TIP]
+> - When using command shorthand like "sh int status" you must also make sure it is a valid command for your type of network OS (IOS, etc).
 
-  ```
-  Exception: Could not find parser for 'show interface status'
-  or 
-  Search for 'show ip int br' is ambiguous. Please be more specific in your keywords.
-  ```
-
-- When using command shorthand like "sh int status"  you must also make sure its a valid command for your type of network OS (IOS etc).
-
-  ```
-  genie.metaparser.util.exceptions.InvalidCommandError: Invalid command has been executed
-  ```
-
+> [!WARNING]
+> genie.metaparser.util.exceptions.InvalidCommandError: Invalid command has been executed
   
 
 ### Handy Links
 
-[pyATS Documentation](https://pubhub.devnetcloud.com/media/pyats/docs/index.html)
+- [pyATS Documentation](https://pubhub.devnetcloud.com/media/pyats/docs/index.html)
 
-[pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
+- [pyATS Genie Documentation](https://pubhub.devnetcloud.com/media/genie-docs/docs/overview/introduction.html)
 
-[Genie Feature Browser](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/)
+- [Genie Feature Browser](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/)
 
-[List of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers)
+- [List of Genie Parsers](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers)
 
-[pyATS Release history from Libraries.io](https://libraries.io/pypi/pyats)
+- [pyATS Release History from Libraries.io](https://libraries.io/pypi/pyats)
 
 
 
 ### GitHub Repositories from Cisco and other Network Engineers
 
-https://github.com/CiscoTestAutomation/examples
+- https://github.com/CiscoTestAutomation/examples
 
-https://github.com/kecorbin/pyats-network-checks/blob/master/devnet_sandbox.yaml
+- https://github.com/kecorbin/pyats-network-checks/blob/master/devnet_sandbox.yaml
 
-https://github.com/vsantiago113/pyATS-Boilerplate
+- https://github.com/vsantiago113/pyATS-Boilerplate
 
 
 
 ### Tutorials
 
-[pyATS on YouTube](https://www.youtube.com/results?search_query=pyats)
+- [pyATS on YouTube](https://www.youtube.com/results?search_query=pyats)
 
-[pyATS | Genie - Getting Started! - Data Knox YouTube](https://www.youtube.com/watch?v=GhkkOxLheRY&t=327s)
+- [pyATS | Genie - Getting Started! - Data Knox YouTube](https://www.youtube.com/watch?v=GhkkOxLheRY&t=327s)
 
-[Introduction to Genie | Python Network Automation! - IPvZero YouTube](https://www.youtube.com/watch?v=THgHwS-zVt8)
+- [Introduction to Genie | Python Network Automation! - IPvZero YouTube](https://www.youtube.com/watch?v=THgHwS-zVt8)
 
 
 ### Community Support
 
-There is an active community on Cisco Webex Teams open to everyone.
-
-- You can join this WebEx Teams space using https://eurl.io/#r18UzrQVr or by finding it listed at https://eurl.io/
-
+- There is an active community on Cisco Webex Teams open to everyone.
+  - You can join this WebEx Teams space using https://eurl.io/#r18UzrQVr or by finding it listed at https://eurl.io/
 
 
 ###  Glossary
 
-UUT = Unit Under Test
-
-DUT = Device Under Test
-
-EUT = Equipment Under Test
-
+| Abbreviation | Meaning              |
+| :----------: | :------------------- |
+| UUT          | Unit Under Test      |
+| DUT          | Device Under Test    |
+| EUT          | Equipment Under Test |
 
 
 ### Troubleshooting
 
-Action:  Creating a Testbed
+> [!NOTE]
+> Action:  Creating a Testbed
 
-Error: pyats.topology.loader is a required dependency for this command 
+> [!WARNING]
+> Error: pyats.topology.loader is a required dependency for this command 
 
-Solution: Remember to install pats.contrib  **pip install pyats.contrib**
-
-```
-(test) root@3a10684f8c82:# pyats create testbed interactive --output my_testbed.yml
-
-
-pyats.topology.loader is a required dependency for this command. 'interactive' source cannot be found.
-
-
-```
-
+> [!TIP]
+> Solution: Remember to install pats.contrib  **`pip install pyats.contrib`**
+>
+> ```
+> (test) root@3a10684f8c82:# pyats create testbed interactive --output my_testbed.yml
+>
+>
+> pyats.topology.loader is a required dependency for this command. 'interactive' source cannot be found.
+> ```
