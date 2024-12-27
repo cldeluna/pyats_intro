@@ -475,6 +475,8 @@ You can also use the `-s` option and save the output to a JSON file for processi
 > [!WARNING]
 > genie.metaparser.util.exceptions.InvalidCommandError: Invalid command has been executed
   
+### Acknowledgements
+Special thanks to [Michael Bear](https://www.linkedin.com/in/michaeljbear/) who took the time to fix some of my mistakes and polish up this file!
 
 ### Handy Links
 
